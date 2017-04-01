@@ -1,5 +1,6 @@
 package com.hotels;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.hotels.clock.BerlinClock;
@@ -7,15 +8,15 @@ import com.hotels.exception.InvalidTimeException;
 
 public class BerlinClockTest
 {
-    @Test
-    public void test() throws InvalidTimeException
-    {
-        BerlinClock berlinClock = new BerlinClock();
-        
-        int hours = 10;
-        int minutes = 56;
-        int seconds = 0;
-        String berlinTime = berlinClock.convertToBerlinTime(hours, minutes, seconds);
-        System.out.println(berlinTime);
-    }
+	@Test
+	public void testFecthBerlinTime() throws InvalidTimeException
+	{
+		final BerlinClock berlinClock = new BerlinClock();
+
+		final int hours = 10;
+		final int minutes = 56;
+		final int seconds = 0;
+		final String berlinTime = berlinClock.fetchBerlinTime(hours, minutes, seconds);
+		Assert.assertEquals("2\n0\n11\n1", berlinTime);
+	}
 }
